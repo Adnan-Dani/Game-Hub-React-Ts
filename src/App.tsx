@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Grid, GridItem, Show } from '@chakra-ui/react'
 
 import './App.css'
+import Navbar from './components/Navbar'
 
 function App() {
 
@@ -13,8 +14,8 @@ function App() {
       }}
       gap='1'
     >
-      <GridItem pl='2' bg='orange.300' area={'nav'}>
-        Nav
+      <GridItem area={'nav'}>
+        <Navbar />
       </GridItem>
       <Show above={"lg"}>
         <GridItem pl='2' bg='pink.300' area={'aside'}>
