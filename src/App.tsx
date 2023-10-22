@@ -1,17 +1,30 @@
 import { useState } from 'react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Grid, GridItem, Show } from '@chakra-ui/react'
 
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <Button colorScheme='blue'>Button</Button>
-    </>
+    <Grid
+      templateAreas={{
+        base: `"nav" "main"`,
+        lg: `"nav nav" "aside main" `, // 1024 px
+      }}
+      gap='1'
+    >
+      <GridItem pl='2' bg='orange.300' area={'nav'}>
+        Nav
+      </GridItem>
+      <Show above={"lg"}>
+        <GridItem pl='2' bg='pink.300' area={'aside'}>
+          Aside
+        </GridItem>
+      </Show>
+      <GridItem pl='2' bg='green.300' area={'main'}>
+        Main
+      </GridItem>
+    </Grid>
   )
 }
 
