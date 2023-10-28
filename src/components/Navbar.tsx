@@ -1,8 +1,10 @@
 
+// UI
 import { HStack, Image } from '@chakra-ui/react'
 
-import logo from './../assets/images.png'
+// Custom Components
 import ColorModeSwitch from './ColorModeSwitch'
+import logo from './../assets/images.png'
 
 const Navbar = () => {
     return (
