@@ -7,6 +7,7 @@ import GameCard from './GameCard';
 // Custom Hooks
 import useGames from '../hooks/useGames';
 import GameCardSkelton from './GameCardSkelton';
+import GameCardContainer from './GameCardContainer';
 
 const GamesGrid = () => {
     const { games, error, isLoading } = useGames();
@@ -15,9 +16,9 @@ const GamesGrid = () => {
         <div>
             {error && <Text>{error}</Text>}
             <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} spacing={10} padding='10'>
-                {isLoading && skeltons.map(s => <GameCardSkelton key={s} />)}
+                {isLoading && skeltons.map(s => <GameCardContainer><GameCardSkelton key={s} /></GameCardContainer>)}
                 {
-                    games.map(g => <GameCard key={g.id} game={g} />)
+                    games.map(g => <GameCardContainer><GameCard key={g.id} game={g} /></GameCardContainer>)
                 }
             </SimpleGrid>
 
