@@ -1,16 +1,20 @@
 
 // Custom Hooks
-import useData from "../hooks/useData";
-import useGenres, { Genre } from "../hooks/useGenres"
+import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
+import useGenres from "../hooks/useGenres"
 
 const GenreList = () => {
     const { isLoading, data, error } = useGenres();
+    console.log(data)
     return (
-        <div>
-            <ul>
-                {data.map(g => <li>{g.name}</li>)}
-            </ul>
-        </div>
+        <List>
+            {data.map(g => <ListItem paddingY="5px" key={g.id}>
+                <HStack>
+                    <Image boxSize="32px" borderRadius={8} src={g.image_background} />
+                    <Text fontSize="lg" >{g.name}</Text>
+                </HStack>
+            </ListItem>)}
+        </List>
     )
 }
 
