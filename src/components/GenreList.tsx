@@ -1,13 +1,14 @@
 
 // Custom Hooks
-import useGenres from "../hooks/useGenres"
+import useData from "../hooks/useData";
+import useGenres, { Genre } from "../hooks/useGenres"
 
 const GenreList = () => {
-    const { isLoading, genres, error } = useGenres();
+    const { isLoading, data, error } = useGenres();
     return (
         <div>
             <ul>
-                {genres.map(g => <li>{g.name}</li>)}
+                {data.map(g => <li>{g.name}</li>)}
             </ul>
         </div>
     )

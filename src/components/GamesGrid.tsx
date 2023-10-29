@@ -10,7 +10,7 @@ import GameCardSkelton from './GameCardSkelton';
 import GameCardContainer from './GameCardContainer';
 
 const GamesGrid = () => {
-    const { games, error, isLoading } = useGames();
+    const { data, error, isLoading } = useGames();
     const skeltons = [1, 2, 3, 4, 5, 6];
     return (
         <div>
@@ -18,7 +18,7 @@ const GamesGrid = () => {
             <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} spacing={10} padding='10'>
                 {isLoading && skeltons.map(s => <GameCardContainer><GameCardSkelton key={s} /></GameCardContainer>)}
                 {
-                    games.map(g => <GameCardContainer><GameCard key={g.id} game={g} /></GameCardContainer>)
+                    data.map(g => <GameCardContainer><GameCard key={g.id} game={g} /></GameCardContainer>)
                 }
             </SimpleGrid>
 
