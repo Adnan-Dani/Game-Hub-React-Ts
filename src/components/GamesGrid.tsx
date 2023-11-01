@@ -14,8 +14,8 @@ interface Props {
     selectedGenre: Genre | null;
 }
 
-const GamesGrid = ({ selelectedGenre }: Props) => {
-    const { data, error, isLoading } = useGames(selelectedGenre);
+const GamesGrid = ({ selectedGenre }: Props) => {
+    const { data, error, isLoading } = useGames(selectedGenre);
     const skeltons = [1, 2, 3, 4, 5, 6];
     return (
         <div>

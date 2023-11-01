@@ -4,10 +4,11 @@ import { Button, HStack, Image, List, ListItem, Spinner, Text } from "@chakra-ui
 import useGenres, { Genre } from "../hooks/useGenres"
 
 interface Props {
+    selectedGenre: Genre | null;
     onSelectedGenre: (genre: Genre) => void;
 }
 
-const GenreList = ({ onSelectedGenre }: Props) => {
+const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
     const { isLoading, data, error } = useGenres();
 
     if (error) return null;
@@ -17,7 +18,7 @@ const GenreList = ({ onSelectedGenre }: Props) => {
             {data.map(g => <ListItem paddingY="5px" key={g.id}>
                 <HStack>
                     <Image boxSize="32px" borderRadius={8} src={g.image_background} />
-                    <Button variant='link' fontSize="lg" onClick={() => onSelectedGenre(g)} >{g.name}</Button>
+                    <Button variant='link' fontWeight={g.id === selectedGenre?.id ? "bold" : "normal"} fontSize="lg" onClick={() => onSelectedGenre(g)} >{g.name}</Button>
                 </HStack>
             </ListItem>)}
         </List>
