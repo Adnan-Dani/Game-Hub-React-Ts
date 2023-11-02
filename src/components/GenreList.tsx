@@ -1,7 +1,10 @@
+// UI
+import { Button, HStack, Image, List, ListItem, Spinner } from "@chakra-ui/react";
 
 // Custom Hooks
-import { Button, HStack, Image, List, ListItem, Spinner, Text } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres"
+
+// Interfaces
 import { GameQuery } from "../App";
 
 interface Props {

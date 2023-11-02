@@ -1,5 +1,10 @@
+// UI
 import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
+
+// Icons
 import { BsChevronDown } from 'react-icons/bs'
+
+// Custom Hooks + Interfaces
 import usePlatform, { Platform } from '../hooks/usePlatform'
 
 interface Props {

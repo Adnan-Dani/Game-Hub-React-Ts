@@ -1,7 +1,8 @@
 // Custom Hooks
-import { GameQuery } from "../App";
 import useData from "./useData";
-import { Genre } from "./useGenres";
+
+// Interfaces
+import { GameQuery } from "../App";
 
 export interface Platform {
   id: number;
