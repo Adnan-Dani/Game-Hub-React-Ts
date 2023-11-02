@@ -13,6 +13,7 @@ import FilterSelector from './components/FilterSelector'
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortOrder: string
 }
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
       <GridItem area={'main'}>
         <HStack spacing={5} paddingLeft={10}>
           <PlatformSelector selectedPlatform={gameQuery.platform} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
-          <FilterSelector />
+          <FilterSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} />
         </HStack>
         <GamesGrid gameQuery={gameQuery} />
 
