@@ -14,6 +14,7 @@ import FilterSelector from './components/FilterSelector'
 // Custom Hooks
 import { Genre } from './hooks/useGenres'
 import { Platform } from './hooks/usePlatform';
+import GameHeading from './components/GameHeading'
 
 export interface GameQuery {
   genre: Genre | null;
@@ -44,8 +45,9 @@ function App() {
           <GenreList gameQuery={gameQuery} onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })} />
         </GridItem>
       </Show>
-      <GridItem area={'main'}>
-        <Flex paddingLeft={10}>
+      <GridItem paddingLeft={10} area={'main'}>
+        <GameHeading gameQuery={gameQuery} />
+        <Flex marginTop={5}>
           <Box marginRight={5}>
             <PlatformSelector selectedPlatform={gameQuery.platform} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
           </Box>
