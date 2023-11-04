@@ -1,5 +1,5 @@
 // UI
-import { Button, HStack, Image, List, ListItem, Spinner } from "@chakra-ui/react";
+import { Button, HStack, Heading, Image, List, ListItem, Spinner } from "@chakra-ui/react";
 
 // Custom Hooks
 import useGenres, { Genre } from "../hooks/useGenres"
@@ -18,14 +18,17 @@ const GenreList = ({ gameQuery, onSelectedGenre }: Props) => {
     if (error) return null;
     if (isLoading) return <Spinner />
     return (
-        <List>
-            {data.map(g => <ListItem paddingY="5px" key={g.id}>
-                <HStack>
-                    <Image boxSize="32px" borderRadius={8} src={g.image_background} />
-                    <Button variant='link' fontWeight={g.id === gameQuery.genre?.id ? "bold" : "normal"} fontSize="lg" onClick={() => onSelectedGenre(g)} >{g.name}</Button>
-                </HStack>
-            </ListItem>)}
-        </List>
+        <>
+            <Heading fontSize='2xl' marginBottom={3}>Genres</Heading>
+            <List>
+                {data.map(g => <ListItem paddingY="5px" key={g.id}>
+                    <HStack>
+                        <Image objectFit='cover' boxSize="32px" borderRadius={8} src={g.image_background} />
+                        <Button whiteSpace='normal' textAlign='left' variant='link' fontWeight={g.id === gameQuery.genre?.id ? "bold" : "normal"} fontSize="lg" onClick={() => onSelectedGenre(g)} >{g.name}</Button>
+                    </HStack>
+                </ListItem>)}
+            </List>
+        </>
     )
 }
 
